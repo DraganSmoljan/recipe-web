@@ -20,7 +20,9 @@ export const GetRecipes = () => {
       }
     };
     getRecipes();
-  }, []);
+  }, [query]);
 
   return [data];
 };
+
+export default GetRecipes;
