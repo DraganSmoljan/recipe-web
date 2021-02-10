@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 
 export const GetRecipes = () => {
-  const [data, setRecipes] = useState([]);
+  const [recipesData, setRecipes] = useState([]);
   const [query, setQuery] = useState("chicken");
 
   useEffect(() => {
@@ -13,8 +13,8 @@ export const GetRecipes = () => {
         const response = await fetch(
           `https://api.edamam.com/search?q=${query}&app_id=${ID}&app_key=${KEY}`
         );
-        const data = await response.json();
-        setRecipes(data.hits);
+        const recipesData = await response.json();
+        setRecipes(recipesData.hits);
       } catch (error) {
         console.log(error);
       }
@@ -22,7 +22,7 @@ export const GetRecipes = () => {
     getRecipes();
   }, [query]);
 
-  return [data];
+  return [recipesData];
 };
 
 export default GetRecipes;

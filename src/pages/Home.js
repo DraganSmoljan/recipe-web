@@ -3,7 +3,7 @@ import GetRecipes from "../services/edamamApi.js";
 import Recipes from "../components/recipes/recipes";
 
 export default function Home() {
-  const [data] = GetRecipes();
+  const [recipesData] = GetRecipes();
 
   return (
     <div className="shopping-list">
@@ -11,7 +11,7 @@ export default function Home() {
         <input></input>
         <button type="submit">Search</button>
       </form>
-      {data.map((item) => (
+      {recipesData.map((item) => (
         <Recipes
           label={item.recipe.label}
           calories={item.recipe.calories}
